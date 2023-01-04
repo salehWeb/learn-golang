@@ -1,10 +1,10 @@
 go 1.19
 
-
 use (
-	./types/basic-types
-	./types/composite-types
 	./basic-use
+	./http
 	./pointers
 	./server
+	./types/basic-types
+	./types/composite-types
 )

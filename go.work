@@ -1,5 +1,10 @@
 go 1.19
 
-use ./types/Basic-Types
-use ./types/Composite-Types
-use ./basic-use
+
+use (
+	./types/basic-types
+	./types/composite-types
+	./basic-use
+	./pointers
+	./server
+)

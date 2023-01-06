@@ -6,6 +6,7 @@ use (
 	./goroutine
 	./http
 	./interfaces
+	./mutex
 	./pointers
 	./server
 	./types/basic-types

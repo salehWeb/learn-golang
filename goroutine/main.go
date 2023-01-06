@@ -3,8 +3,11 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"sync"
 	"time"
 )
+
+var wg sync.WaitGroup
 
 func main() {
 	// // goroutine
@@ -19,14 +22,18 @@ func main() {
 	fmt.Println(time.Now())
 
 	for i := 0; i < len(webSites); i++ {
+		wg.Add(1)
 		go SendHttpRequest(webSites[i])
 	}
 
-	time.Sleep(time.Second)
+	wg.Wait()
+
 	fmt.Println(time.Now())
 }
 
 func SendHttpRequest(url string) {
+	defer wg.Done()
+
 	res, err := http.Get(url)
 
 	if err != nil {

@@ -1,9 +1,11 @@
 go 1.19
 
 use (
-	./api
 	./basic-use
+	./db
+	./goroutine
 	./http
+	./interfaces
 	./pointers
 	./server
 	./types/basic-types

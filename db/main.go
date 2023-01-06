@@ -23,7 +23,6 @@ type db struct {
 }
 
 func NewDb() Db {
-
 	return &db{
 		Len:   0,
 		ToDos: make(map[uint8]ToDo),

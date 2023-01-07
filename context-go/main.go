@@ -11,7 +11,8 @@ import (
 func main() {
 	fmt.Printf("context allow you to cancel the operation after certain time\n\n")
 
-	timeout, _ := context.WithTimeout(context.Background(), time.Millisecond*50)
+	timeout, cancel := context.WithTimeout(context.Background(), time.Millisecond*50)
+	defer cancel()
 
 	req, err := http.NewRequestWithContext(timeout, "GET", "https://github.com", nil)
 

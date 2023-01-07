@@ -1,6 +1,7 @@
 package main
 
 import (
+	"bytes"
 	"errors"
 	"fmt"
 	"log"
@@ -89,7 +90,7 @@ func main() {
 	}
 
 	fmt.Printf("\n Error handling \n\n")
-	src, err := os.ReadFile("./text.txt")
+	src, err := os.ReadFile("./basic-use/text.txt")
 	if err != nil {
 		log.Fatal(err)
 	} else {
@@ -122,6 +123,14 @@ func main() {
 	is_authorized(user1)
 	is_authorized(user2)
 	is_authorized(user3)
+
+	fmt.Printf("\n\nBuffer \n\n")
+	fmt.Printf("A Buffer is a variable-sized buffer of bytes with Read and Write methods.\n\n")
+
+	var buf bytes.Buffer // Buffer initialization
+	buf.Write([]byte("Hello "))
+	fmt.Fprintf(&buf, "world!")
+	buf.WriteTo(os.Stdout)
 
 	fmt.Printf("\n\nDefer \n\n")
 	fmt.Printf("Defer make function work first in last out\n\n")
